@@ -1,4 +1,4 @@
-PROJECT = JLRPOCX030.Browser
+PROJECT = OPENIVI030.Browser
 INSTALL_FILES = images css js icon.png index.html templates
 WRT_FILES = DNA_common css icon.png setup images js templates config.xml error.html index.html search.html warning.html manifest.json README.txt
 VERSION := 0.0.1
@@ -22,7 +22,7 @@ kill.xwalk:
 	ssh root@$(TIZEN_IP) "pkill xwalk"
 
 kill.feb1:
-	ssh app@$(TIZEN_IP) "pkgcmd -k JLRPOCX030.Browser"
+	ssh app@$(TIZEN_IP) "pkgcmd -k OPENIVI030.Browser"
 
 run: install
 	ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && xwalkctl | egrep -e 'Browser' | awk '{print $1}' | xargs --no-run-if-empty xwalk-launcher -d"
@@ -31,26 +31,26 @@ boxcheck: tizen-release
 	ssh root@$(TIZEN_IP) "cat /etc/tizen-release" | diff tizen-release - ; if [ $$? -ne 0 ] ; then tput setaf 1 ; echo "tizen-release version not correct"; tput sgr0 ;exit 1 ; fi
 	
 run.feb1: install.feb1
-	ssh app@$(TIZEN_IP) "app_launcher -s JLRPOCX030.Browser -d "
+	ssh app@$(TIZEN_IP) "app_launcher -s OPENIVI030.Browser -d "
 
 install.feb1: deploy
 ifndef OBS
-	-ssh app@$(TIZEN_IP) "pkgcmd -u -n JLRPOCX030.Browser -q"
-	ssh app@$(TIZEN_IP) "pkgcmd -i -t wgt -p /home/app/JLRPOCX030.Browser.wgt -q"
+	-ssh app@$(TIZEN_IP) "pkgcmd -u -n OPENIVI030.Browser -q"
+	ssh app@$(TIZEN_IP) "pkgcmd -i -t wgt -p /home/app/OPENIVI030.Browser.wgt -q"
 endif
 
 ifndef OBS
 install: deploy
 	ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && xwalkctl | egrep -e 'Browser' | awk '{print $1}' | xargs --no-run-if-empty xwalkctl -u"
-	ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && xwalkctl -i /home/app/JLRPOCX030.Browser.wgt"
+	ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && xwalkctl -i /home/app/OPENIVI030.Browser.wgt"
 else
 install: 
-	cp -r JLRPOCX030.Browser.wgt.wgt ${DESTDIR}/opt/usr/apps/.preinstallWidgets/
+	cp -r OPENIVI030.Browser.wgt.wgt ${DESTDIR}/opt/usr/apps/.preinstallWidgets/
 endif
 
 install_obs: 
 	mkdir -p ${DESTDIR}/opt/usr/apps/.preinstallWidgets
-	cp -r JLRPOCX030.Browser.wgt ${DESTDIR}/opt/usr/apps/.preinstallWidgets/
+	cp -r OPENIVI030.Browser.wgt ${DESTDIR}/opt/usr/apps/.preinstallWidgets/
 
 $(PROJECT).wgt : wgt
 
@@ -78,21 +78,21 @@ clean:
 	rm -rf css/user
 	rm -f $(PROJECT).wgt
 
-common: /opt/usr/apps/common-apps
-	cp -r /opt/usr/apps/common-apps DNA_common
+common: /opt/usr/apps/openivi-common-apps
+	cp -r /opt/usr/apps/openivi-common-apps DNA_common
 
-/opt/usr/apps/common-apps:
+/opt/usr/apps/openivi-common-apps:
 	@echo "Please install Common Assets"
 	exit 1
 
-dev-common: ../common-app
-	cp -rf ../common-app ./DNA_common
+dev-common: ../openivi-common-app
+	cp -rf ../openivi-common-app ./DNA_common
 	rm -rf DNA_common/.git
 
-../common-app:
+../openivi-common-app:
 	#@echo "Please checkout Common Assets"
 	#exit 1
-	git clone  git@github.com:PDXostc/common-app.git ../common-app
+	git clone git@github.com:konsulko/openivi-common-app.git ../openivi-common-app
 
 $(INSTALL_DIR) :
 	mkdir -p $(INSTALL_DIR)/

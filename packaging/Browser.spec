@@ -35,11 +35,11 @@ make wgtPkg
 make install_obs "OBS=1" DESTDIR="%{?buildroot}"
 
 %post
-su app -c "pkgcmd -i -t wgt -p /opt/usr/apps/.preinstallWidgets/JLRPOCX030.Browser.wgt -q"
+su app -c "pkgcmd -i -t wgt -p /opt/usr/apps/.preinstallWidgets/OPENIVI030.Browser.wgt -q"
 
 %postun
-su app -c "pkgcmd -u -n JLRPOCX030 -q"
+su app -c "pkgcmd -u -n OPENIVI030 -q"
 
 %files
 %defattr(-,root,root,-)
-/opt/usr/apps/.preinstallWidgets/JLRPOCX030.Browser.wgt
+/opt/usr/apps/.preinstallWidgets/OPENIVI030.Browser.wgt
