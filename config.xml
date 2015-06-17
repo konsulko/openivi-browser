@@ -12,7 +12,7 @@
     <tizen:privilege name="http://tizen.org/privilege/bluetooth.admin"/>
     <tizen:privilege name="http://tizen.org/privilege/bluetooth.spp"/>
     <tizen:privilege name="http://tizen.org/privilege/bluetooth.gap"/>
-    <tizen:setting screen-orientation="landscape" context-menu="enable" background-support="disable" encryption="disable" install-location="auto"/>
+    <tizen:setting screen-orientation="landscape" context-menu="disable" background-support="disable" encryption="disable" install-location="auto"/>
     <tizen:allow-navigation>*</tizen:allow-navigation>
     <access origin="http://*/" subdomains="true"></access>
     <access origin="http://accuweather.com" subdomains="true"></access>
