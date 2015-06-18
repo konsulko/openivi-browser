@@ -179,8 +179,9 @@
 .iconHomeBrowser {
   background-image: url('../images/icon_home_blue.png');
   background-repeat: no-repeat;
-  height: 72px;
-  width: 72px;
+  background-size: 50px 50px;
+  height: 50px;
+  width: 50px;
 }
 
 .iconHomeBrowser:active {
@@ -286,4 +287,8 @@
 
 .close-button::after {
   height: 40px;
+}
+
+#reload {
+  font-size: 1.8rem;
 }
