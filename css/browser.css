@@ -102,9 +102,9 @@
   align-content: center;
   align-items: center;    
   display: flex;    
-  height: 100px;
+  height: 50px;
   justify-content: center;
-  width: 100px;
+  width: 50px;
 }
 
 .browserButtonOpacity {
@@ -125,7 +125,7 @@
   border-color: rgba(255, 255, 255, 0.5);  
   border-style: solid;  
   border-width: 1px;
-  height: 78px;
+  height: 50px;
   margin: 0;
   width: 545px;
 }
@@ -133,46 +133,47 @@
 .iconBackBrowser {
   background-image: url('/DNA_common/components/settings/images/back.png');
   background-repeat: no-repeat;
-  background-size: 75px 75px;
-  height: 75px;
-  width: 75px;
+  background-size: 50px 50px;
+  height: 50px;
+  width: 50px;
 }
 
 .iconBackBrowser_noHover {
   background-image: url('/DNA_common/components/settings/images/back.png');
   background-repeat: no-repeat;
-  background-size: 75px 75px;
-  height: 75px;
-  width: 75px;
+  background-size: 50px 50px;
+  height: 50px;
+  width: 50px;
 }
 
 .iconForwardBrowser {
   -webkit-transform: scaleX(-1);
   background-image: url('/DNA_common/components/settings/images/back.png');
   background-repeat: no-repeat;
-  background-size: 75px 75px;  
-  height: 75px;  
+  background-size: 50px 50px;
+  height: 50px;
   transform: scaleX(-1);
-  width: 75px;
+  width: 50px;
 }
 
 .iconForwardBrowser_noHover {
   -webkit-transform: scaleX(-1);
   background-image: url('/DNA_common/components/settings/images/back.png');
   background-repeat: no-repeat;
-  background-size: 75px 75px;
-  height: 75px;
+  background-size: 50px 50px;
+  height: 50px;
   transform: scaleX(-1);
-  width: 75px;  
+  width: 50px;
 }
 
 .iconSearchBrowser {
   background-color: #53b5ce;
   color: #fff;
-  height: 78px;
-  line-height: 75px;
+  height: 50px;
+  line-height: 50px;
   text-align: center;
-  width: 80px;
+  width: 70px;
+  font-size: 4rem;
 }
 
 .iconHomeBrowser {
